@@ -1,3 +1,4 @@
+import Atomico from "@atomico/plugin-vite";
 /**
  *
  * @returns {import("astro").AstroRenderer}
@@ -22,7 +23,9 @@ function getRenderer() {
  *
  * @returns {import("astro").AstroIntegration}
  */
-export default function () {
+export default function ({
+  cssLiterals = { minify: false, postcss: false },
+} = {}) {
   return {
     name: "@atomico/astro",
     hooks: {
@@ -34,6 +37,7 @@ export default function () {
               include: ["atomico", "atomico/jsx-runtime"],
               exclude: ["@atomico/astro/server"],
             },
+            plugins: [Atomico({ jsx: false, cssLiterals })],
           },
         });
       },
