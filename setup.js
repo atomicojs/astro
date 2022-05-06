@@ -5,7 +5,7 @@
 function getRenderer() {
   return {
     name: "@atomico/astro",
-    serverEntrypoint: "@atomico/astro/server.js",
+    serverEntrypoint: "@atomico/astro/server",
     jsxImportSource: "atomico",
     jsxTransformOptions: async () => {
       const {
@@ -26,8 +26,16 @@ export default function () {
   return {
     name: "@atomico/astro",
     hooks: {
-      "astro:config:setup": ({ addRenderer }) => {
+      "astro:config:setup": ({ addRenderer, updateConfig }) => {
         addRenderer(getRenderer());
+        updateConfig({
+          vite: {
+            optimizeDeps: {
+              include: ["atomico", "atomico/jsx-runtime"],
+              exclude: ["@atomico/astro/server"],
+            },
+          },
+        });
       },
     },
   };
