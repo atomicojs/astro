@@ -1,18 +1,18 @@
-# @atomico/plugin-astro
+# @atomico/astro
 
 Early support for using Atomico SSR + Astro Build.
 
 ## Install
 
 ```bash
-npm i -D @atomico/plugin-astro
+npm i -D @atomico/astro
 ```
 
 ## Usage
 
 ```js
 import { defineConfig } from "astro/config";
-import Atomico from "@atomico/plugin-astro";
+import Atomico from "@atomico/astro";
 
 export default defineConfig({
   integrations: [Atomico()],
