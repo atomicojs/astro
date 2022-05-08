@@ -13,8 +13,8 @@ const SSR = {
     return !!Element?.props;
   },
   renderToStaticMarkup(Component, props, children) {
-    const dom = html`<${Component} ...${props}>${children}</${Component}>`;
-    return { html: dom.render() };
+    const dom = html`<${Component} ...${props}></${Component}>`;
+    return { html: dom.render(children) };
   },
 };
 
