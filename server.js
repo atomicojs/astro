@@ -6,7 +6,11 @@ import { html } from "atomico";
  */
 const SSR = {
   check(Component) {
-    return customElements.get(Component);
+    const Element =
+      Component.prototype instanceof HTMLElement
+        ? Component
+        : customElements.get(Component);
+    return !!Element?.props;
   },
   renderToStaticMarkup(Component, props, children) {
     const dom = html`<${Component} ...${props}>${children}</${Component}>`;
