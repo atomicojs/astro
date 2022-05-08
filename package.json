@@ -1,6 +1,6 @@
 {
   "name": "@atomico/astro",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Atomico + Astro build support",
   "publishConfig": {
     "access": "public"
