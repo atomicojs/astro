@@ -1,6 +1,6 @@
 {
   "name": "@atomico/astro",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "description": "Atomico + Astro build support",
   "publishConfig": {
     "access": "public"
@@ -31,7 +31,7 @@
   "homepage": "https://github.com/atomicojs/astro#readme",
   "devDependencies": {
     "@babel/plugin-transform-react-jsx": "^7.17.3",
-    "astro": "^1.0.0-beta.24"
+    "astro": "latest"
   },
   "dependencies": {
     "@atomico/plugin-vite": "latest",
@@ -39,7 +39,7 @@
   },
   "peerDependencies": {
     "@babel/plugin-transform-react-jsx": "^7.17.3",
-    "astro": "^1.0.0-beta.24",
+    "astro": "latest",
     "@atomico/plugin-vite": "latest",
     "atomico": "latest"
   }
