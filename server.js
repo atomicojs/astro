@@ -12,7 +12,11 @@ const SSR = {
         : customElements.get(Component);
     return !!Element?.props;
   },
-  renderToStaticMarkup(Component, props, children) {
+  renderToStaticMarkup(Component, props, content) {
+    const children = [];
+    for (const prop in content) {
+      children.push(content[prop]);
+    }
     const dom = html`<${Component} ...${props}></${Component}>`;
     return { html: dom.render(children) };
   },
