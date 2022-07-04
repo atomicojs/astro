@@ -1,4 +1,4 @@
-import "atomico/ssr";
+import "atomico/ssr/load";
 import { html } from "atomico";
 
 /**
