@@ -1,4 +1,4 @@
-import Atomico from "@atomico/plugin-vite";
+import Atomico from "@atomico/vite";
 /**
  *
  * @returns {import("astro").AstroRenderer}
@@ -6,6 +6,7 @@ import Atomico from "@atomico/plugin-vite";
 function getRenderer() {
   return {
     name: "@atomico/astro",
+    clientEntrypoint: "@atomico/astro/client",
     serverEntrypoint: "@atomico/astro/server",
     jsxImportSource: "atomico",
     jsxTransformOptions: async () => {
