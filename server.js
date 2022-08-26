@@ -1,5 +1,5 @@
 import "atomico/ssr/load";
-import { html } from "atomico";
+import { h } from "atomico";
 
 /**
  * @type {import("astro").SSRLoadedRenderer["ssr"]}
@@ -12,13 +12,14 @@ const SSR = {
         : customElements.get(Component);
     return !!Element?.props;
   },
-  renderToStaticMarkup(Component, props, content) {
-    const children = [];
-    for (const prop in content) {
-      children.push(content[prop]);
+  renderToStaticMarkup(Component, props, slots) {
+    let fragment = "";
+
+    for (const slot in slots) {
+      fragment += slots[slot];
     }
-    const dom = html`<${Component} ...${props}></${Component}>`;
-    return { html: dom.render(children) };
+
+    return { html: h(Component, props).render(fragment) };
   },
 };
 
