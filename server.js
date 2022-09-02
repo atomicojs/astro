@@ -1,5 +1,12 @@
 import "atomico/ssr/load";
 import { h } from "atomico";
+/**
+ *
+ * @param {string} name
+ * @param {string} children
+ */
+const slotWrapper = (name, children) =>
+  `<astro-slot${name ? ` slot="${name}"` : ""}>${children}</astro-slot>`;
 
 /**
  * @type {import("astro").SSRLoadedRenderer["ssr"]}
@@ -12,11 +19,12 @@ const SSR = {
         : customElements.get(Component);
     return !!Element?.props;
   },
-  renderToStaticMarkup(Component, props, slots) {
-    let fragment = "";
+  renderToStaticMarkup(Component, props, { default: children, ...slotted }) {
+    let fragment = children != null ? slotWrapper("", children) : "";
 
-    for (const slot in slots) {
-      fragment += slots[slot];
+    for (const slot in slotted) {
+      console.log({ slot });
+      fragment += slotWrapper(slot, slotted[slot]);
     }
 
     return { html: h(Component, props).render(fragment) };
