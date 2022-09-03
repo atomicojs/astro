@@ -23,7 +23,6 @@ const SSR = {
     let fragment = children != null ? slotWrapper("", children) : "";
 
     for (const slot in slotted) {
-      console.log({ slot });
       fragment += slotWrapper(slot, slotted[slot]);
     }
 
