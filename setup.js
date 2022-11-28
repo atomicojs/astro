@@ -21,11 +21,20 @@ function getRenderer() {
 }
 
 /**
- *
+ * @param {object} options
+ * @param {object} [options.cssLiterals]
+ * @param {boolean} [options.cssLiterals.minify]
+ * @param {boolean} [options.cssLiterals.postcss]
+ * @param {string} [options.tsconfig]
+ * @param {object} [options.customElements]
+ * @param {string} options.customElements.prefix
+ * @param {string[]} options.customElements.define
  * @returns {import("astro").AstroIntegration}
  */
-export default function ({
+export default function atomicoAstro({
   cssLiterals = { minify: false, postcss: false },
+  tsconfig,
+  customElements,
 } = {}) {
   return {
     name: "@atomico/astro",
@@ -38,7 +47,9 @@ export default function ({
               include: ["atomico", "atomico/jsx-runtime"],
               exclude: ["@atomico/astro/server"],
             },
-            plugins: [Atomico({ jsx: false, cssLiterals })],
+            plugins: [
+              Atomico({ jsx: false, cssLiterals, tsconfig, customElements }),
+            ],
           },
         });
       },
