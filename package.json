@@ -1,6 +1,6 @@
 {
   "name": "@atomico/astro",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "description": "Atomico + Astro build support",
   "publishConfig": {
     "access": "public"
@@ -34,7 +34,7 @@
     "astro": "*"
   },
   "dependencies": {
-    "@atomico/vite": "^2.4.0",
+    "@atomico/vite": "*",
     "@babel/plugin-transform-react-jsx": "^7.17.3",
     "atomico": "*"
   },
