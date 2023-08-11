@@ -41,6 +41,7 @@
   "peerDependencies": {
     "@babel/plugin-transform-react-jsx": "^7.17.3",
     "astro": "latest",
-    "atomico": "*"
+    "atomico": "*",
+    "parse5": "*"
   }
 }
